@@ -21,7 +21,17 @@ public class ProductsController {
     @PostMapping("/post")
     public Products post(@RequestBody Products product) {
 
-        return productsService.post(product);
+        boolean status = true;
+        Products pro = new Products();
+        pro.setProduct_code(product.getProduct_code());
+        pro.setProduct_name(product.getProduct_name());
+        pro.setUnit_price(product.getUnit_price());
+        pro.setYear_to_date(product.getYear_to_date());
+        pro.setGain_loss(product.getGain_loss());
+        pro.setActive_status(status);
+
+
+        return productsService.post(pro);
     }
 
     @PostMapping("/postAll")
